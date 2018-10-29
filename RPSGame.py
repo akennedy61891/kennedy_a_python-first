@@ -56,8 +56,8 @@ while player is False:
 			player_life = player_life -1
 			print ("You Lose!", computer_choice, "cut", player)
 		else:
-			computer_life = computer life -1
-			print("You won!", player, "smashes", computer_choice)
+			computer_life = computer_life -1
+			print("You won!", player, "covers", computer_choice)
 
 	elif player == "Scissors": 
 		if computer_choice == "Paper":
