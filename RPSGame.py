@@ -1,53 +1,87 @@
 # import the random package so that we can generate random numbers
 from random import randint
 
-#choices is an array => a container that can hold multiple items 
-# arrays are 0-based -> the first item is 0, the second is 1, etc. 
+#choices is an array => a container that can hold multiple items  
 choices = ["Rock", "Paper", "Scissors",]
+
+#make a computer choose a weapon
+computer_choice = choices[randint(0,2)]
+
+#set lives for computer and player
+player_life = 3
+computer_life = 3
+
 player = False
-
-#make the computer choose an array randomly 
-#computer_choice = choices [randint (0,2)]
-
-#show the computer's choice in the terminal window
-print("Computer chooses:", computer_choice)
 
 #set up our loop 
 while player is False:
 	#set player to True by making a selection
+	print()
+	print("Your lives: ", player_life)
+	print("Computer lives: ", computer_life)
 	print("Choose your Weapon!")
 	player = input("Rock, Paper or Scissors?\n")
 
-	print(player, "\n")
+#quit game
+	if player == "quit":
+		exit()
 
-	#check for a tie = choices are the same
+#choices of player and computer
+	print("Player chooses:", player)
+	print("computer chooses: ", computer_choice)
+
+#set the restart command
+	if player == "restart":
+		player_life = 3
+		computer_life = 3
+		player = False
+		computer_choice = choices [randint(0,2)]
+
+#check for a tie = choices are the same
 	if player == computer_choice:
 		print("Tie! You live to shoot another day")
-		#check to see if the computer choice beats our choice or not
+		
+	#check to see if the computer choice beats our choice or not
 	elif player == "Rock":
-		if computer_choice == "Paper":
-			#computer won. crap!!
-			print("You lose! Paper covers Rock")
+		if computer_choice == "Scissors":
+			computer_life = computer_life - 1
+			print("You Won! Do a happy dance!")
+
 		else:
-			#we win! such winning
-			print("You Win!", player, "smashes", computer_choice)
+			player_life = player_life -1
+			print("You Lose!", player, "covers", computer_choice)
 
 	elif player == "Paper":
 		if computer_choice == "Scissors":
+			player_life = player_life -1
 			print ("You Lose!", computer_choice, "cut", player)
 		else:
-			print("You won!", player, "covers", computer_choice)
+			computer_life = computer life -1
+			print("You won!", player, "smashes", computer_choice)
 
 	elif player == "Scissors": 
-		if computer_choice == "Rock":
-			print ("You Lose!", computer_choice, "smashes", player)
+		if computer_choice == "Paper":
+			computer_life = computer_life -1
+			print ("You Win!", player, "cuts", computer_choice)
 		else:
-			print ("You Win!", player, "cut", computer_choice)
+			player_life = player_life -1
+			print ("You Lose!", computer_choice, "smashes", player)
 	elif player == "quit":
 		exit()
 	else:
 		print("Check your spelling... that's not a valid choice\n")
 
 	#reset the game loop and start over again
+
+while computer_life == 0:
+	print()
+	print("Your lives: ", player_life)
+	print("Computer lives: ", computer_life)
+	print("Fantastic! you beat the game!")
+	player = input("restart or quit?\n")
+	if player == "quit":
+		exit()
+	else: 
+		print("Check your spelling...")
 	player = False
 	computer_choice = choices[randint(0,2)]
