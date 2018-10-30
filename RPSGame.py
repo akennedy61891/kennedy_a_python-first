@@ -73,15 +73,32 @@ while player is False:
 
 	#reset the game loop and start over again
 
-while computer_life == 0:
-	print()
-	print("Your lives: ", player_life)
-	print("Computer lives: ", computer_life)
-	print("Fantastic! you beat the game!")
-	player = input("restart or quit?\n")
-	if player == "quit":
-		exit()
-	else: 
-		print("Check your spelling...")
+	player = False
+	computer_choice = choices[randint(0,2)]
+
+	while player_life == 0:
+		print()
+		print("Your lives: ", player_life)
+		print("Computer lives: ", computer_life)
+		print("Too bad, so sad! You lose!")
+		player = input("restart or quit?\n")
+		if player == "quit":
+			exit()
+		else: 
+			print("Check your spelling...")
+		player = False
+		computer_choice = choices[randint(0,2)]
+
+
+	while computer_life == 0:
+		print()
+		print("Your lives: ", player_life)
+		print("Computer lives: ", computer_life)
+		print("Fantastic! you beat the game!")
+		player = input("restart or quit?\n")
+		if player == "quit":
+			exit()
+		else: 
+			print("Check your spelling...")
 	player = False
 	computer_choice = choices[randint(0,2)]
