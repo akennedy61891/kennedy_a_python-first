@@ -14,11 +14,12 @@ computer_life = 3
 player = False
 
 #set up our loop 
-while player is False:
+if player is False:
 	#set player to True by making a selection
-	print()
-	print("Your lives: ", player_life)
-	print("Computer lives: ", computer_life)
+	print("===============================")
+	print("Your lives:", player_life, "/3")
+	print("Computer lives:", computer_life, "/3")
+	print("===============================")
 	print("Choose your Weapon!")
 	player = input("Rock, Paper or Scissors?\n")
 
@@ -44,7 +45,7 @@ while player is False:
 	#check to see if the computer choice beats our choice or not
 	elif player == "Rock":
 		if computer_choice == "Scissors":
-			computer_life = computer_life - 1
+			computer_life = computer_life -1
 			print("You Won! Do a happy dance!")
 
 		else:
@@ -71,12 +72,14 @@ while player is False:
 	else:
 		print("Check your spelling... that's not a valid choice\n")
 
+	#check for win or lose
+
 	#reset the game loop and start over again
 
 	player = False
 	computer_choice = choices[randint(0,2)]
 
-	while player_life == 0:
+	if player_life == 0:
 		print()
 		print("Your lives: ", player_life)
 		print("Computer lives: ", computer_life)
@@ -90,7 +93,7 @@ while player is False:
 		computer_choice = choices[randint(0,2)]
 
 
-	while computer_life == 0:
+	if computer_life == 0:
 		print()
 		print("Your lives: ", player_life)
 		print("Computer lives: ", computer_life)
