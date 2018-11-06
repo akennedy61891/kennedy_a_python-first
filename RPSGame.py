@@ -14,7 +14,7 @@ computer_life = 3
 player = False
 
 #set up our loop 
-if player is False:
+while player is False:
 	#set player to True by making a selection
 	print("===============================")
 	print("Your lives:", player_life, "/3")
